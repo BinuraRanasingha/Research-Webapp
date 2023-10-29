@@ -7,11 +7,11 @@ Original file is located at
     https://colab.research.google.com/drive/18NqPdIrQFNdPES-mGZklO9u7BwHGOYNd
 """
 
-!pip install streamlit
+#!pip install streamlit
 
-!pip install pymongo
+#!pip install pymongo
 
-!pip install pyngrok
+#!pip install pyngrok
 
 from pyngrok import ngrok
 
