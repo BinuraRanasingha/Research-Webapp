@@ -23,7 +23,7 @@ from pyngrok import ngrok
 
 # !streamlit run web_app.py & npx localtunnel --port 8501
 
-%%writefile web_app_updated.py
+
 import streamlit as st
 import tensorflow as tf
 import pickle
@@ -566,4 +566,4 @@ if st.button("Run Monte Carlo Simulation"):
         unsafe_allow_html=True
     )
 
-!streamlit run web_app_updated.py & npx localtunnel --port 8501
+
