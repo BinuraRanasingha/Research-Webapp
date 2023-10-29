@@ -38,7 +38,7 @@ import seaborn as sns
 import plotly.express as px
 
 # Load the saved TensorFlow model
-model_tf = tf.keras.models.load_model('Model/f_borrowing.h5')
+model_tf = tf.keras.models.load_model('f_borrowing.h5')
 
 # Load the pickle model for taxation
 with open("/content/taxation.pkl", "rb") as file_tax:
