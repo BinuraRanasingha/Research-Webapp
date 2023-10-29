@@ -13,7 +13,6 @@ Original file is located at
 
 #!pip install pyngrok
 
-!pip install -r requirements.txt
 
 from pyngrok import ngrok
 
