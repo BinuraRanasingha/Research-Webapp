@@ -5,3 +5,7 @@ pandas==1.5.2
 streamlit==1.24.0
 pyngrok
 tensorflow
+matplotlib
+pymongo
+seaborn
+plotly
