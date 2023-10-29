@@ -335,10 +335,10 @@ def debt(current_total_gov_debt,foreign_debt,domestc_debt,money_printing):
 gov_debt =  debt_pred
 
 #user input - inflation_target
-inflation_target = st.number_input("Please Enter Target Inflation Rate (in millions):", value=0, step=1)
+inflation_target = st.number_input("Please Enter Target Inflation Rate:", value=0, step=1)
 
 #user input - debt_target
-gdebt_target = st.number_input("Please Enter Target Debt-GDP ratio (in millions):", value=0, step=1)
+gdebt_target = st.number_input("Please Enter Target Debt-GDP ratio:", value=0, step=1)
 
 #user input - expenditure amount
 exp_amount = st.number_input("Please Enter Current expenditure (in millions): ", value=0, step=1)
