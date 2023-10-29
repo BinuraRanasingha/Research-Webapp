@@ -1,7 +1,0 @@
-scikit-learn
-joblib==1.2.0
-nltk==3.8.1
-pandas==1.5.2
-streamlit==1.24.0
-tensorflow
-pyngrok==6.1.2
