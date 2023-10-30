@@ -1,5 +1,6 @@
 from pyngrok import ngrok
 
+%%writefile web_app_updated.py
 import streamlit as st
 import tensorflow as tf
 import pickle
@@ -564,7 +565,7 @@ else:
 # Define a button to trigger the Monte Carlo simulation
 if st.button("Run Monte Carlo Simulation"):
     # Define the number of iterations
-    n_iterations = 100000
+    n_iterations = 100
 
     # Initializing empty list
     results = []
@@ -728,4 +729,124 @@ if st.button("Run Monte Carlo Simulation"):
     )
 
 
+#-------------------------------------------------------------------------------
+if st.button("Validate"):
+    total_sum = exp_amount
+
+    # Calculate the percentages for each value
+    optimized_foreign_borrowing_percentage = (for_exp_amount / total_sum) * 100
+    optimized_taxation_percentage = (tax_exp_amount / total_sum) * 100
+    optimized_domestic_borrowings_percentage = (dom_exp_amount / total_sum) * 100
+    optimized_money_printing_percentage = (mon_exp_amount / total_sum) * 100
+
+    # Data for the pie chart
+    labels = ['Foreign Borrowing', 'Taxation', 'Domestic Borrowings', 'Money Printing']
+    sizes =[for_exp_amount, tax_exp_amount, dom_exp_amount, mon_exp_amount]
+    colors = ['#ff9999', '#66b3ff', '#99ff99', '#c2c2f0']
+
+    # Create the pie chart
+    fig5, ax2 = plt.subplots()
+    ax2.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+    ax2.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+    # Display the pie chart using Streamlit
+    #header
+    st.header("Percentages of allocated amounts")
+    st.pyplot(fig5)
+
+
+
+    #------past---------#
+
+    df_MoneyPrintingCollection = pd.DataFrame(list(MoneyPrintingCollection_df.find({},{"_id":0})))
+    df_ForeignBorrowingCollection = pd.DataFrame(list(ForeignBorrowingCollection_df.find({},{"_id":0})))
+    df_TaxationCollection = pd.DataFrame(list(TaxationCollection_df.find({},{"_id":0})))
+    df_DomesticBorrowingCollection = pd.DataFrame(list(DomesticBorrowingCollection_df.find({},{"_id":0})))
+
+    # Access your collection
+    collection = db["df_MoneyPrintingCollection"]
+    # Convert the year input to an integer (if it's not already)
+    year = user_input_year_debt
+
+    # Define a query to find documents for the given year
+    query = {"YEAR":year}
+
+    # Iterate through the results and do something with the data
+    results = collection.find(query)
+    last_value_gdp = []
+    for result in results:
+        # Access fields within the document
+        value_money = result["Money_Printing"]
+
+
+    # Access your collection 2
+    collection = db["df_ForeignBorrowingCollection"]
+    # Convert the year input to an integer (if it's not already)
+    year = user_input_year_debt
+
+    # Define a query to find documents for the given year
+    query = {"YEAR":year}
+
+    # Iterate through the results and do something with the data
+    results = collection.find(query)
+    last_value_gdp = []
+    for result in results:
+        # Access fields within the document
+        value_Foreign = result["Foreign Borrowing"]
+
+
+    # Access your collection 3
+    collection = db["df_TaxationCollection"]
+    # Convert the year input to an integer (if it's not already)
+    year = user_input_year_debt
+
+    # Define a query to find documents for the given year
+    query = {"YEAR":year}
+
+    # Iterate through the results and do something with the data
+    results = collection.find(query)
+    last_value_gdp = []
+    for result in results:
+        # Access fields within the document
+        value_Tax = result["Tax Revenue"]
+
+
+    # Access your collection 3
+    collection = db["df_DomesticBorrowingCollection"]
+    # Convert the year input to an integer (if it's not already)
+    year = user_input_year_debt
+
+    # Define a query to find documents for the given year
+    query = {"YEAR":year}
+
+    # Iterate through the results and do something with the data
+    results = collection.find(query)
+    last_value_gdp = []
+    for result in results:
+        # Access fields within the document
+        value_Domestic = result["Domestic Borrowing"]
+
+
+    total_sum = value_Domestic + value_Tax +  value_Foreign + value_money
+
+    # Calculate the percentages for each value
+    actual_foreign_borrowing_percentage = (value_Foreign / total_sum) * 100
+    actual_taxation_percentage = (value_Tax / total_sum) * 100
+    actual_domestic_borrowings_percentage = (value_Domestic / total_sum) * 100
+    actual_money_printing_percentage = (value_money / total_sum) * 100
+
+    # Data for the pie chart
+    labels = ['value_Foreign', 'Taxation', 'Domestic Borrowings', 'Money Printing']
+    sizes =[for_exp_amount_1, value_Tax, value_Domestic, value_money]
+    colors = ['#ff9999', '#66b3ff', '#99ff99', '#c2c2f0']
+
+    # Create the pie chart
+    fig5, ax2 = plt.subplots()
+    ax2.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+    ax2.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+    # Display the pie chart using Streamlit
+    #header
+    st.header("Percentages of allocated amounts")
+    st.pyplot(fig5)
 
