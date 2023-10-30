@@ -13,28 +13,28 @@ import seaborn as sns
 import plotly.express as px
 
 # Load the saved TensorFlow model
-model_tf = tf.keras.models.load_model('/content/f_borrowing.h5')
+model_tf = tf.keras.models.load_model('f_borrowing.h5')
 
 # Load the pickle model for taxation
-with open("/content/taxation.pkl", "rb") as file_tax:
+with open("taxation.pkl", "rb") as file_tax:
     model_tax = pickle.load(file_tax)
 
 # Load the pickle model for domestic borrowings
-with open("/content/Domestic_borrowings_best.pkl", "rb") as file_dom:
+with open("Domestic_borrowings_best.pkl", "rb") as file_dom:
     model_dom = pickle.load(file_dom)
 
 # Load the pickle model for Money printing
-with open("/content/money_printing_model.pkl", "rb") as file_dom:
+with open("money_printing_model.pkl", "rb") as file_dom:
     model_mon = pickle.load(file_dom)
 
 
 # Load the pickle model for bebt sustainability
-with open("/content/tot_debt_model.pkl", "rb") as file_debt:
+with open("tot_debt_model.pkl", "rb") as file_debt:
     model_debt = pickle.load(file_debt)
 
 
 # Load the pickle model for bebt sustainability
-with open("/content/GDP.pkl", "rb") as file_gdp:
+with open("GDP.pkl", "rb") as file_gdp:
     model_gdp = pickle.load(file_gdp)
 
 #MongoDB connection for access the past dataset in order to make visualizations#
